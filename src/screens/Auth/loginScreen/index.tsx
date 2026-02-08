@@ -80,7 +80,6 @@ const LoginScreen = () => {
                         }) => (
                             <View style={styles.form}>
                                 <CommonTextField
-                                    label="Email address"
                                     placeholder="Enter your email"
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
@@ -91,7 +90,6 @@ const LoginScreen = () => {
                                 />
 
                                 <CommonTextField
-                                    label="Password"
                                     placeholder="Enter your password"
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}

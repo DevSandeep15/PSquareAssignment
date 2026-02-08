@@ -56,7 +56,7 @@ const SignupScreen = () => {
                 text1: 'Account Created',
                 text2: 'Welcome to PSquare!',
             });
-            // Navigation will be handled by AppNavigator's isAuthenticated listener
+
         } catch (error: any) {
             const friendlyMessage = getFirebaseErrorMessage(error);
             Toast.show({
@@ -93,7 +93,6 @@ const SignupScreen = () => {
                         }) => (
                             <View style={styles.form}>
                                 <CommonTextField
-                                    label="Enter your name"
                                     placeholder="Enter your name"
                                     onChangeText={handleChange('name')}
                                     onBlur={handleBlur('name')}
@@ -103,7 +102,6 @@ const SignupScreen = () => {
                                 />
 
                                 <CommonTextField
-                                    label="Email address"
                                     placeholder="enter your email"
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
@@ -114,7 +112,6 @@ const SignupScreen = () => {
                                 />
 
                                 <CommonTextField
-                                    label="Password"
                                     placeholder="Password"
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
@@ -125,7 +122,6 @@ const SignupScreen = () => {
                                 />
 
                                 <CommonTextField
-                                    label="Confirm password"
                                     placeholder="Confirm password"
                                     onChangeText={handleChange('confirmPassword')}
                                     onBlur={handleBlur('confirmPassword')}

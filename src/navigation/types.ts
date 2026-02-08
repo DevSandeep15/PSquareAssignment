@@ -8,13 +8,49 @@ export type AuthStackParamList = {
     Signup: undefined;
 };
 
-// Define the param list for stack navigation
+// Define the param list for main tabs
+export type MainTabParamList = {
+    Home: undefined;
+    Search: undefined;
+    Bag: undefined;
+    Profile: undefined;
+};
+
+// Define the param list for main stack
+export type MainStackParamList = {
+    Tabs: NavigatorScreenParams<MainTabParamList>;
+    ProductDetail: { productId: number };
+    ProductList: undefined;
+    Shipping: undefined;
+    OrderSuccess: undefined;
+    Payment: {
+        shippingAddress: {
+            firstName: string;
+            lastName: string;
+            country: string;
+            street: string;
+            city: string;
+            state: string;
+            zipCode: string;
+            phone: string;
+        };
+        shippingMethod: {
+            id: string;
+            name: string;
+            price: number;
+            deliveryTime: string;
+        };
+    };
+};
+
+// Define the param list for root navigation
 export type RootStackParamList = {
     Auth: NavigatorScreenParams<AuthStackParamList>;
-    Main: undefined; // Placeholder for main app later
+    Main: NavigatorScreenParams<MainStackParamList>;
 };
 
 export type WelcomeScreenProps = NativeStackScreenProps<AuthStackParamList, 'WelcomeScreen'>;
+export type ProductDetailProps = NativeStackScreenProps<MainStackParamList, 'ProductDetail'>;
 
 // Declare global types for navigation
 declare global {
@@ -22,4 +58,3 @@ declare global {
         interface RootParamList extends RootStackParamList { }
     }
 }
-

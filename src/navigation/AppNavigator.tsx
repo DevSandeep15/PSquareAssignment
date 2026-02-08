@@ -13,6 +13,8 @@ import auth from '@react-native-firebase/auth';
 import { setCredentials, logout } from '../store/slices/authSlice';
 import CommonButton from '../components/CommonButton';
 
+import MainNavigator from './TabNavigator';
+
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthNavigator = () => {
@@ -54,16 +56,9 @@ const AppNavigator: React.FC = () => {
     }, [dispatch]);
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: Colors.backgroundgray }}>
             {isAuthenticated ? (
-                <View style={styles.authenticatedContainer}>
-                    <Text style={styles.welcomeText}>Welcome to PSquare!</Text>
-                    <CommonButton
-                        title="Logout"
-                        onPress={() => auth().signOut()}
-                        style={styles.logoutBtn}
-                    />
-                </View>
+                <MainNavigator />
             ) : (
                 <AuthNavigator />
             )}

@@ -12,6 +12,7 @@ export const Colors = {
   // Background Colors
   background: '#000000',
   backgroundDark: '#000000',
+  backgroundgray: '#1a1a1aff',
   backgroundSecondary: '#F2F2F7',
   backgroundSecondaryDark: '#1C1C1E',
 

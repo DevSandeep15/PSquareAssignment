@@ -32,6 +32,8 @@ const CommonTextField: React.FC<CommonTextFieldProps> = ({
     touched,
     containerStyle,
     inputStyle,
+    onFocus,
+    onBlur,
     ...props
 }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -45,7 +47,7 @@ const CommonTextField: React.FC<CommonTextFieldProps> = ({
 
     return (
         <View style={[styles.container, containerStyle]}>
-            {/* {label && <Text style={styles.label}>{label}</Text>} */}
+            {label && <Text style={styles.label}>{label}</Text>}
             <View
                 style={[
                     styles.inputWrapper,
@@ -64,8 +66,14 @@ const CommonTextField: React.FC<CommonTextFieldProps> = ({
                     placeholderTextColor={Colors.textSecondary}
                     secureTextEntry={isPassword ? !showPassword : props.secureTextEntry}
                     style={[styles.input, inputStyle]}
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
+                    onFocus={(e) => {
+                        setIsFocused(true);
+                        onFocus && onFocus(e);
+                    }}
+                    onBlur={(e) => {
+                        setIsFocused(false);
+                        onBlur && onBlur(e);
+                    }}
                     autoCapitalize="none"
                     {...props}
                 />
